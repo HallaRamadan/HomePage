@@ -8,12 +8,14 @@ let products = [
         "name": "Apples",
         "price": "2",
         "amount": "10",
+        "currency": "DKK",
 
     },
     {
         "name": "Melons",
         "price": "10",
         "amount": "1",
+        "currency": "DKK",
     }
 ]
 
@@ -47,16 +49,16 @@ for(let i=0; i<2; i++){
 }
 for (let i=0; i<2; i++) {
     myTable+="<tr><td style='width: 100px;'>" + myArray[i].name + "</td>";
-    myTable+="<td style='width: 100px; text-align: right;'>" + myArray[i].price + "</td>";
+    myTable+="<td style='width: 100px; text-align: right;'>" + myArray[i].price +" "+ "DKK</td>";
     myTable+="<td style='width: 100px; text-align: right;'>" + myArray[i].amount+ "</td>";
-    myTable+="<td style='width: 100px; text-align: right;'>" + myArray[i].price*myArray[i].amount + "</td>";
+    myTable+="<td style='width: 100px; text-align: right;'>" + myArray[i].price*myArray[i].amount +" "+ "DKK</td>";
     myTable+="<td style='width: 100px; text-align: right;'></td></tr>";
 }
 myTable+="<tr><td style='width: 100px;'>" + "</td>";
 myTable+="<td style='width: 100px; text-align: right;'>" +  "</td>";
 myTable+="<td style='width: 100px; text-align: right;'>" + "</td>";
 myTable+="<td style='width: 100px; text-align: right;'>" +  "</td>";
-myTable+="<td style='width: 100px; text-align: right;'>"+total+"</td></tr>";
+myTable+="<td style='width: 100px; text-align: right;'>" + total +" "+ "DKK</td></tr>";
 
 
 
