@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSON to HTML table</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<table id="employeesTable">
+</table>
+
+<script>
+    // Load the JSON data from the file using AJAX
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'checkoutlist.json', true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            var jsonData = JSON.parse(xhr.responseText);
+
+            // Create the HTML table
+            var table = document.getElementById('employeesTable');
+            var header = table.createTHead();
+            var row = header.insertRow();
+            Object.keys(jsonData.employees[0]).forEach(function(key) {
+                var th = document.createElement('th');
+                th.innerText = key;
+                row.appendChild(th);
+            });
+            var tbody = table.createTBody();
+            jsonData.employees.forEach(function(employee) {
+                var tr = tbody.insertRow();
+                Object.keys(employee).forEach(function(key) {
+                    var td = tr.insertCell();
+                    td.innerText = employee[key];
+                });
+            });
+        }
+    };
+    xhr.send();
+</script>
+</body>
+</html>
+
